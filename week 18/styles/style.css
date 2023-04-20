@@ -1,0 +1,97 @@
+body {
+  font-family: Arial, sans-serif;
+  background-image: url("https://cdn3.vectorstock.com/i/1000x1000/89/07/film-cinema-background-vector-568907.jpg");
+  background-size: cover;
+  padding: 0 30px;
+}
+
+h1 {
+  font-size: 36px;
+  color: white;
+  position: relative;
+}
+
+h1,
+h2 {
+  text-align: center;
+}
+
+h1::before,
+h1::after {
+  content: "\2764\2764\2764";
+  font-size: 1.5em;
+  color: red;
+  margin-right: 10px;
+}
+
+.directors-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  border: 1px solid black;
+  padding: 10px;
+}
+
+.director {
+  display: flex;
+  flex-direction: column;
+  width: 50%;
+  margin-bottom: 20px;
+  padding: 10px;
+  background-color: #f2f2f2;
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+}
+
+.director:hover {
+  background-color: #f1f1f1;
+}
+
+.director h3 {
+  font-size: 24px;
+  margin-bottom: 10px;
+}
+
+.director p {
+  font-size: 16px;
+  line-height: 1.5;
+  margin-bottom: 10px;
+}
+
+.director a {
+  font-size: 16px;
+  color: blue;
+}
+
+.director-card {
+  display: flex;
+  width: 50%;
+  display: inline-block;
+  padding: 10px;
+}
+
+.director-card .name {
+  font-size: 20px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.director-card .career {
+  margin-bottom: 10px;
+}
+
+.director-card .link {
+  display: block;
+  margin-top: 10px;
+  text-decoration: none;
+  background-color: #f2f2f2;
+  padding: 5px;
+  border-radius: 15px;
+  width: 30%;
+  float: right;
+  text-align: center;
+}
+
+.director-card .link:hover {
+  background-color: #a9a0a0;
+  transform: scale(1.1);
+}
