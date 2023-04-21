@@ -89,6 +89,6 @@ directors.forEach((director) => {
   // Добавляем элементы в родительский элемент
   directorCard.appendChild(nameElement); //Добавляем имя
   directorCard.appendChild(careerElement); //Добавляем описание
-  directorCard.appendChild(linkElement); //Добавляем карточку ccылку
+  directorCard.appendChild(linkElement); //Добавляем ccылку
   directorsContainer.appendChild(directorCard); // Добавляем карточку режиссера в контейнер
 });
