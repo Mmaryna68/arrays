@@ -3,6 +3,9 @@
   <head>
     <title>My Page</title>
     <link rel="stylesheet" href="styles/modal.css" />
+    <form onsubmit="handleSubmit(event)">
+      <!-- ... -->
+    </form>
   </head>
   <body>
     <h1>Welcome to my page!</h1>
@@ -47,6 +50,8 @@
       </div>
     </div>
 
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
     <script>
       // получаем ссылки на все модальные окна и кнопки открытия
       const modals = document.querySelectorAll(".modal");
@@ -77,6 +82,9 @@
 
         // удаляем класс для показа модального окна
         modal.classList.remove("show");
+
+        // // вызываем функцию alert
+        alert("Form submitted");
       }
 
       // назначаем обработчики событий для кнопок открытия и закрытия модальных окон
@@ -95,6 +103,13 @@
           modals[index].style.display = "block";
         });
       });
+
+      /*// Обработчик событий для кнопок закрытия модального окна
+      for (let i = 0; i < closeButtons.length; i++) {
+        closeButtons[i].addEventListener("click", () => {
+          modal.style.closeModal = "close";
+        });
+      } */
 
       // добавляем обработчики событий клика на крестики для закрытия модальных окон
 
@@ -115,12 +130,12 @@
         const input = event.target.previousElementSibling;
         const value = input.value;
 
-        // выводим сообщение в консоль
-        console.log(`Submitted value: ${value}`);
+        /* // выводим сообщение в алерт
+        alert(`Submitted value: ${value}`);
 
         // закрываем модальное окно
         const modal = event.target.closest(".modal");
-        modal.classList.remove("show");
+        modal.classList.remove("show");*/
       }
 
       // привязываем обработчик событий click к каждой кнопке "Submit"
@@ -132,13 +147,10 @@
         button.addEventListener("click", function (event) {
           event.preventDefault();
           const modal = event.target.closest(".modal");
-          const input = modal.querySelector("input");
-          alert("Submitted: " + input.value);
-          modal.classList.remove("show");
         });
       });
 
-      //добавляем обработчик событий "submit" для формы
+      /* //добавляем обработчик событий "submit" для формы
       const form = document.querySelector("form");
       const modal = document.querySelector(".modal");
       const closeButton = document.querySelector(".close-button");
@@ -158,14 +170,14 @@
         const name = nameInput.value;
         console.log(`Hello, ${name}!`);
         modal1.classList.remove("show");
-      });
+      }); */
 
       // получаем ссылку на кнопку "submit"
       const submitButton = document.querySelector(
         "#modal1 .submit-button .button"
       );
 
-      // добавляем обработчик события "click"
+      /*// добавляем обработчик события "click"
       submitButton.addEventListener("click", (event) => {
         event.preventDefault(); // предотвращаем отправку формы по умолчанию
 
@@ -177,6 +189,29 @@
         // получаем ссылку на модальное окно и скрываем его
         const modal = document.querySelector("#modal1");
         modal.style.display = "none";
+      }); */
+
+      // получаем ссылки на все формы
+      const forms = document.querySelectorAll("form");
+
+      // добавляем обработчик событий submit для каждой формы
+      forms.forEach((form) => {
+        form.addEventListener("submit", (event) => {
+          event.preventDefault();
+
+          // получаем значение, введенное в поле ввода
+          const input = event.target.querySelector(
+            "input[type=text], input[type=email], input[type=tel]"
+          );
+          const value = input.value;
+
+          // выводим сообщение в алерт
+          alert(`Submitted value: ${value}`);
+
+          // закрываем модальное окно
+          const modal = event.target.closest(".modal");
+          modal.classList.remove("show");
+        });
       });
 
       /* // функция для закрытия модального окна
